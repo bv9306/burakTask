@@ -10,7 +10,8 @@ grids.
 - PMD
 - Checkstyle
 - SonarLint
-- Unit tests coverage over 80%
+- Unit tests coverage over 80% by supporting jacoco results
+
 ## Features
 
 - **RPN Calculator**: Evaluate expressions in Reverse Polish Notation.
