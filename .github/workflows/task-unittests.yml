@@ -32,14 +32,28 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Run tests with Maven
-        run: mvn clean test
+        run: mvn clean install
 
-      - name: Publish Test Report
+      - name: Archive test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: target/surefire-reports/
+
+      - name: Publish JUnit test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: junit-results
+          path: target/surefire-reports/*.xml
+
+      - name: Visualize Test Report
         if: always()
         uses: dorny/test-reporter@v1
         with:
           name: Unit Tests for Burak Task
           path: target/surefire-reports/*.xml
-          reporter: jest-junit
+          reporter: junit
           fail-on-error: true
           require-tests: true
