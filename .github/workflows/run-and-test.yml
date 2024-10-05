@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       hintInput:
-        description: 'Minesweeper grid input (for example: "**...", ".....", ".*..." )'
+        description: 'Minesweeper grid input (for example: **..., ....., .*...)'
         required: true
-        default: '"**...", ".....", ".*..."'
+        default: '**..., ....., .*...'
       rpnInput:
         description: 'RPN expression input (for example: "3 5 8 * 7 + *")'
         required: true
@@ -46,9 +46,11 @@ jobs:
       - name: Test /api/show-hints
         run: |
           echo "Testing /api/show-hints"
+          formattedInput=$(echo "${{ github.event.inputs.hintInput }}" | sed 's/\([^,]*\)/"\1"/g' | sed 's/^/[/' | sed 's/$/]/')
+          echo "Formatted input: $formattedInput"
           curl -X POST http://localhost:9090/api/show-hints \
             -H "Content-Type: application/json" \
-            -d "{\"square\": [${{ github.event.inputs.hintInput }}]}"
+            -d "{\"square\": $formattedInput}"  # Send the formatted input
 
       - name: Test /api/calculate
         run: |
