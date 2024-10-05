@@ -41,7 +41,7 @@ jobs:
         run: |
           java -jar target/burakTask-0.0.1-SNAPSHOT.jar &
           echo "Waiting for the application to start..."
-          sleep 30  # Wait for a while to ensure the application starts
+          sleep 30  # Wait for a while ,it is a note for myself(Burak)
 
       - name: Test /api/show-hints
         run: |
