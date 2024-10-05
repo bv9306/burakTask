@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Main class for the application.
  *
- * @Author Burak Vural
+ * @author Burak Vural
  */
 @SpringBootApplication
 public class BurakTaskApplication {
