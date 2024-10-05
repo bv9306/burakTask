@@ -49,11 +49,7 @@ jobs:
           path: target/surefire-reports/*.xml
 
       - name: Visualize Test Report
-        if: always()
-        uses: dorny/test-reporter@v1
+        uses: mikepenz/action-junit-report@v4
+        if: success() || failure()
         with:
-          name: Unit Tests for Burak Task
-          path: target/surefire-reports/*.xml
-          reporter: java-junit
-          fail-on-error: true
-          require-tests: true
+          report_paths: '**/build/test-results/test/TEST-*.xml'
