@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MinesweeperUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">burakTask</a> &gt; <a href="index.source.html" class="el_package">com.pinsoft.burakTask.utils</a> &gt; <span class="el_source">MinesweeperUtils.java</span></div><h1>MinesweeperUtils.java</h1><pre class="source lang-java linenums">package com.pinsoft.burakTask.utils;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.List;
+import java.util.Objects;
+import java.util.regex.Pattern;
+
+/**
+ * This class is responsible for checking if a given Minesweeper grid is valid.
+ *
+ * @author Burak
+ */
+<span class="fc" id="L14">@Slf4j</span>
+<span class="nc" id="L15">public final class MinesweeperUtils {</span>
+  private static final String MINESWEEPER_REGEX = &quot;^[*.]+$&quot;;
+
+<span class="fc" id="L18">  private static final Pattern MINESWEEPER_PATTERN = Pattern.compile(MINESWEEPER_REGEX);</span>
+
+  public static boolean isValidMinesweeperInput(final List&lt;String&gt; grid) {
+<span class="fc" id="L21">    log.info(&quot;Checking if the given Minesweeper grid is valid.&quot;);</span>
+<span class="pc bpc" id="L22" title="1 of 4 branches missed.">    if (Objects.isNull(grid) || grid.isEmpty()) {</span>
+<span class="fc" id="L23">      log.error(&quot;The given Minesweeper grid is null or empty.&quot;);</span>
+<span class="fc" id="L24">      return false;</span>
+    }
+<span class="fc bfc" id="L26" title="All 2 branches covered.">    for (String row : grid) {</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">      if (!MINESWEEPER_PATTERN.matcher(row).matches()) {</span>
+<span class="fc" id="L28">        log.error(&quot;The given Minesweeper grid is invalid.&quot;);</span>
+<span class="fc" id="L29">        return false;</span>
+      }
+<span class="fc" id="L31">    }</span>
+<span class="fc" id="L32">    log.info(&quot;The given Minesweeper grid is valid.&quot;);</span>
+<span class="fc" id="L33">    return true;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
