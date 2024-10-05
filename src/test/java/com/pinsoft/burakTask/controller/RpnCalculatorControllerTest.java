@@ -35,7 +35,7 @@ public class RpnCalculatorControllerTest {
 
   @Test
   void testEvaluateInvalidExpression() throws Exception {
-    String invalidRpnJson = "{\"expression\": \"5 +\"}"; // Example of an invalid RPN expression
+    String invalidRpnJson = "{\"expression\": \"5 +\"}";
 
     mockMvc.perform(post("/api/calculate")
             .contentType(MediaType.APPLICATION_JSON)

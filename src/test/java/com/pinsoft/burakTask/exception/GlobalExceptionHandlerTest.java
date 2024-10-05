@@ -23,7 +23,6 @@ public class GlobalExceptionHandlerTest {
   void testHandleMinesweeperValidationException() {
     String errorMessage = "Invalid Minesweeper input.";
     MinesweeperValidationException exception = new MinesweeperValidationException(errorMessage);
-    WebRequest request = null; // Mock or create a WebRequest as needed
 
     ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleValidationException(exception);
 
@@ -39,7 +38,6 @@ public class GlobalExceptionHandlerTest {
   void testHandleRpnValidationException() {
     String errorMessage = "Invalid RPN expression.";
     RpnValidationException exception = new RpnValidationException(errorMessage);
-    WebRequest request = null; // Mock or create a WebRequest as needed
 
     ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleValidationException(exception);
 
