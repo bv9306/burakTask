@@ -52,7 +52,6 @@ public class GlobalExceptionHandlerTest {
   @Test
   void testHandleGenericException() {
     Exception exception = new Exception("Something went wrong.");
-    WebRequest request = null;
 
     ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleGenericException(exception);
 
