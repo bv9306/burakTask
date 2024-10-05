@@ -10,7 +10,7 @@ grids.
 - PMD
 - Checkstyle
 - SonarLint
-- Unit tests coverage over 75%
+- Unit tests coverage over 80%
 ## Features
 
 - **RPN Calculator**: Evaluate expressions in Reverse Polish Notation.
@@ -19,10 +19,9 @@ grids.
 ## Technologies Used
 
 - Java 17
-- Spring Boot 3.x
+- Spring Boot 3.5
 - Lombok
 - SLF4J for logging
-- H2 Database (for development) / MySQL (for production)
 - Maven for dependency management
 
 ## Prerequisites
