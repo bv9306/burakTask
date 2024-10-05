@@ -38,8 +38,8 @@ jobs:
         if: always()
         uses: dorny/test-reporter@v1
         with:
-          name: Unit Tests
+          name: Unit Tests for Burak Task
           path: target/surefire-reports/*.xml
-          reporter: junit
+          reporter: jest-junit
           fail-on-error: true
           require-tests: true
