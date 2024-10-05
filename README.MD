@@ -67,6 +67,11 @@ grids.
   docker rm burak-task-container
     ```
 
+## Github Actions
+- Github Actions is used for CI/CD. 
+- When a push is made to the main branch, the project is built and tested.
+- If the tests are successful, It will visualize test results.
+
 ## Endpoints
 
 - RPN Calculator: /api/calculate
