@@ -55,3 +55,10 @@ jobs:
           report_paths: '**/target/surefire-reports/TEST-*.xml'
           require_tests: true
           include_passed: true
+
+      - name: Deploy jacoco Report to GitHub Pages
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/site/jacoco
