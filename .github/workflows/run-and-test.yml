@@ -48,7 +48,7 @@ jobs:
           echo "Testing /api/show-hints"
           curl -X POST http://localhost:9090/api/show-hints \
             -H "Content-Type: application/json" \
-            -d "{\"square\": \"${{ github.event.inputs.hintInput }}\"}"
+            -d "{\"square\": ${ github.event.inputs.hintInput }}"
 
       - name: Test /api/calculate
         run: |
