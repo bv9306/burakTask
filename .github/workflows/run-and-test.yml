@@ -6,7 +6,7 @@ on:
       hintInput:
         description: 'Minesweeper grid input (for example: **..., ....., .*...)'
         required: true
-        default: '**..., ....., .*...'
+        default: '**...,.....,.*...'
       rpnInput:
         description: 'RPN expression input (for example: "3 5 8 * 7 + *")'
         required: true
