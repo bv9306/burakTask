@@ -47,7 +47,7 @@ jobs:
         run: |
           echo "Testing /api/show-hints"
           formattedInput=$(echo "${{ github.event.inputs.hintInput }}" | sed 's/\([^,]*\)/"\1"/g' | sed 's/^/[/' | sed 's/$/]/')
-          echo "Formatted input: $formattedInput"
+          echo "Input for /api/show-hints: {\"square\": $formattedInput}"
           curl -X POST http://localhost:9090/api/show-hints \
             -H "Content-Type: application/json" \
             -d "{\"square\": $formattedInput}"  # Send the formatted input
@@ -55,6 +55,7 @@ jobs:
       - name: Test /api/calculate
         run: |
           echo "Testing /api/calculate"
+          echo "Input for /api/calculate: {\"expression\": \"${{ github.event.inputs.rpnInput }}\"}"
           curl -X POST http://localhost:9090/api/calculate \
             -H "Content-Type: application/json" \
             -d "{\"expression\": \"${{ github.event.inputs.rpnInput }}\"}"
