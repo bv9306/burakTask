@@ -21,10 +21,10 @@ public class GlobalExceptionHandlerTest {
 
   @Test
   void testHandleMinesweeperValidationException() {
-    String errorMessage = "Invalid Minesweeper input.";
-    MinesweeperValidationException exception = new MinesweeperValidationException(errorMessage);
+    final String errorMessage = "Invalid Minesweeper input.";
+    final MinesweeperValidationException exception = new MinesweeperValidationException(errorMessage);
 
-    ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleValidationException(exception);
+    final ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleValidationException(exception);
 
     assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
     Map<String, Object> body = response.getBody();
@@ -36,10 +36,10 @@ public class GlobalExceptionHandlerTest {
 
   @Test
   void testHandleRpnValidationException() {
-    String errorMessage = "Invalid RPN expression.";
-    RpnValidationException exception = new RpnValidationException(errorMessage);
+    final String errorMessage = "Invalid RPN expression.";
+    final RpnValidationException exception = new RpnValidationException(errorMessage);
 
-    ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleValidationException(exception);
+    final ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleValidationException(exception);
 
     assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
     Map<String, Object> body = response.getBody();
@@ -51,9 +51,9 @@ public class GlobalExceptionHandlerTest {
 
   @Test
   void testHandleGenericException() {
-    Exception exception = new Exception("Something went wrong.");
+    final Exception exception = new Exception("Something went wrong.");
 
-    ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleGenericException(exception);
+    final ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleGenericException(exception);
 
     assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
     Map<String, Object> body = response.getBody();

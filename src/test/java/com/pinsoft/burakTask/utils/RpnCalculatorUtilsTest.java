@@ -11,25 +11,25 @@ public class RpnCalculatorUtilsTest {
 
   @Test
   void testIsValidRpnExpressionValidExpression() {
-    String expression = "3 5 8 * 7 + *";
+    final String expression = "3 5 8 * 7 + *";
     assertTrue(RpnCalculatorUtils.isValidRpnExpression(expression));
   }
 
   @Test
   void testIsValidRpnExpressionInvalidExpressionNotEnoughOperands() {
-    String expression = "5 +";
+    final String expression = "5 +";
     assertFalse(RpnCalculatorUtils.isValidRpnExpression(expression));
   }
 
   @Test
   void testIsValidRpnExpressionInvalidExpressionInvalidCharacter() {
-    String expression = "3 5 x +";
+    final String expression = "3 5 x +";
     assertFalse(RpnCalculatorUtils.isValidRpnExpression(expression));
   }
 
   @Test
   void testIsValidRpnExpressionEmptyExpression() {
-    String expression = "";
+    final String expression = "";
     assertFalse(RpnCalculatorUtils.isValidRpnExpression(expression));
   }
 }

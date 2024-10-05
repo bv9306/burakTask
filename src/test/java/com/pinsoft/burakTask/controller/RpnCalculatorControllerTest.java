@@ -24,7 +24,7 @@ public class RpnCalculatorControllerTest {
 
   @Test
   void testEvaluateValidExpression() throws Exception {
-    String validRpnJson = "{\"expression\": \"3 5 8 * 7 + *\"}";
+    final String validRpnJson = "{\"expression\": \"3 5 8 * 7 + *\"}";
 
     mockMvc.perform(post("/api/calculate")
             .contentType(MediaType.APPLICATION_JSON)
@@ -35,7 +35,7 @@ public class RpnCalculatorControllerTest {
 
   @Test
   void testEvaluateInvalidExpression() throws Exception {
-    String invalidRpnJson = "{\"expression\": \"5 +\"}";
+    final String invalidRpnJson = "{\"expression\": \"5 +\"}";
 
     mockMvc.perform(post("/api/calculate")
             .contentType(MediaType.APPLICATION_JSON)

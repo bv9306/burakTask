@@ -15,37 +15,37 @@ public class MinesweeperUtilsTest {
 
   @Test
   void testValidMinesweeperGrid() {
-    String[] grid = {"*...", ".*..", "...*", "...."};
+    final String[] grid = {"*...", ".*..", "...*", "...."};
     assertTrue(MinesweeperUtils.isValidMinesweeperInput(Arrays.asList(grid)));
   }
 
   @Test
-  void testInvalidMinesweeperGrid_InvalidCharacter() {
-    String[] grid = {"*...", ".*..", "...*", "..a."};
+  void testInvalidMinesweeperGridInvalidCharacter() {
+    final String[] grid = {"*...", ".*..", "...*", "..a."};
     assertFalse(MinesweeperUtils.isValidMinesweeperInput(Arrays.asList(grid)));
   }
 
   @Test
-  void testInvalidMinesweeperGrid_EmptyString() {
-    String[] grid = {"*...", ".*..", "", "...."};
+  void testInvalidMinesweeperGridEmptyString() {
+    final String[] grid = {"*...", ".*..", "", "...."};
     assertFalse(MinesweeperUtils.isValidMinesweeperInput(Arrays.asList(grid)));
   }
 
   @Test
-  void testValidMinesweeperGrid_AllMines() {
-    String[] grid = {"****", "****", "****", "****"};
+  void testValidMinesweeperGridAllMines() {
+    final String[] grid = {"****", "****", "****", "****"};
     assertTrue(MinesweeperUtils.isValidMinesweeperInput(Arrays.asList(grid)));
   }
 
   @Test
-  void testValidMinesweeperGrid_AllEmpty() {
-    String[] grid = {"....", "....", "....", "...."};
+  void testValidMinesweeperGridAllEmpty() {
+    final String[] grid = {"....", "....", "....", "...."};
     assertTrue(MinesweeperUtils.isValidMinesweeperInput(Arrays.asList(grid)));
   }
 
   @Test
-  void testInvalidMinesweeperGrid_MixedInvalidCharacters() {
-    String[] grid = {"*..*", "..1.", ".*..", "...."};
+  void testInvalidMinesweeperGridMixedInvalidCharacters() {
+    final String[] grid = {"*..*", "..1.", ".*..", "...."};
     assertFalse(MinesweeperUtils.isValidMinesweeperInput(Arrays.asList(grid)));
   }
 
@@ -56,13 +56,13 @@ public class MinesweeperUtilsTest {
 
   @Test
   void testSingleRowValidGrid() {
-    String[] grid = {"****"};
+    final String[] grid = {"****"};
     assertTrue(MinesweeperUtils.isValidMinesweeperInput(Arrays.asList(grid)));
   }
 
   @Test
   void testSingleRowInvalidGrid() {
-    String[] grid = {"**x*"};
+    final String[] grid = {"**x*"};
     assertFalse(MinesweeperUtils.isValidMinesweeperInput(Arrays.asList(grid)));
   }
 }

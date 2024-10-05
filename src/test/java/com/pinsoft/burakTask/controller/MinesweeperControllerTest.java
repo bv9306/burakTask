@@ -38,10 +38,10 @@ public class MinesweeperControllerTest {
 
   @Test
   void testShowHintsValidRequest() throws Exception {
-    MinesweeperRequest validRequest = new MinesweeperRequest();
+    final MinesweeperRequest validRequest = new MinesweeperRequest();
     validRequest.setSquare(Arrays.asList("*.*", ".*.", "*.*"));
 
-    String[] expectedHints = {"*3*", "3*3", "*3*"};
+    final String[] expectedHints = {"*3*", "3*3", "*3*"};
     when(minesweeperService.generateHints(validRequest)).thenReturn(expectedHints);
 
     mockMvc.perform(post("/api/show-hints")

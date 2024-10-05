@@ -15,31 +15,31 @@ public class MinesweeperServiceTest {
 
   @Test
   void testGenerateHintsValidGrid() {
-    String[] grid = {"**...", ".....", ".*..."};
-    String[] expectedHints = {"**100", "33200", "1*100"};
-    MinesweeperRequest request = new MinesweeperRequest(Arrays.asList(grid));
+    final String[] grid = {"**...", ".....", ".*..."};
+    final String[] expectedHints = {"**100", "33200", "1*100"};
+    final MinesweeperRequest request = new MinesweeperRequest(Arrays.asList(grid));
 
-    String[] result = minesweeperService.generateHints(request);
+    final String[] result = minesweeperService.generateHints(request);
     assertArrayEquals(expectedHints, result);
   }
 
   @Test
   void testGenerateHintsEmptyGrid() {
-    String[] grid = {".....", ".....", "....."};
-    String[] expectedHints = {"00000", "00000", "00000"};
-    MinesweeperRequest request = new MinesweeperRequest(Arrays.asList(grid));
+    final String[] grid = {".....", ".....", "....."};
+    final String[] expectedHints = {"00000", "00000", "00000"};
+    final MinesweeperRequest request = new MinesweeperRequest(Arrays.asList(grid));
 
-    String[] result = minesweeperService.generateHints(request);
+    final String[] result = minesweeperService.generateHints(request);
     assertArrayEquals(expectedHints, result);
   }
 
   @Test
   void testGenerateHintsAllMines() {
-    String[] grid = {"*****", "*****", "*****"};
-    String[] expectedHints = {"*****", "*****", "*****"};
-    MinesweeperRequest request = new MinesweeperRequest(Arrays.asList(grid));
+    final String[] grid = {"*****", "*****", "*****"};
+    final String[] expectedHints = {"*****", "*****", "*****"};
+    final MinesweeperRequest request = new MinesweeperRequest(Arrays.asList(grid));
 
-    String[] result = minesweeperService.generateHints(request);
+    final String[] result = minesweeperService.generateHints(request);
     assertArrayEquals(expectedHints, result);
   }
 }
