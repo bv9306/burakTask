@@ -70,11 +70,13 @@ grids.
 ## Github Actions
 - Github Actions is used for CI/CD. 
 - When a push is made to the main branch, the project is built and tested.
-- If the tests are successful, It will visualize test results.
+- If the tests are successful, It will visualize test results. Chekc the link https://github.com/bv9306/burakTask/actions/workflows/task-unittests.yml
 - Jacoco results can be found in the link https://bv9306.github.io/burakTask/
 
 ## Endpoints
 Task can be testable by using github action. Just give your input and trigger the flow.
+Run the following link to run application in virtual machine of github:
+https://github.com/bv9306/burakTask/actions/workflows/run-and-test.yml
 
 - RPN Calculator: /api/calculate
 - Minesweeper Hint Generator: /api/show-hints
