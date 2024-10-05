@@ -22,11 +22,27 @@ public class RpnCalculatorServiceTest {
   }
 
   @Test
-  void testEvaluateSimpleExpression() {
+  void testEvaluateAdditionSimpleExpression() {
     String expression = "4 2 +";
     RpnCalculatorRequest request = new RpnCalculatorRequest(expression);
     double result = rpnCalculatorService.evaluateRPN(request);
     assertEquals(6.0, result);
+  }
+
+  @Test
+  void testEvaluateSubtractionSimpleExpression() {
+    String expression = "9 2 -";
+    RpnCalculatorRequest request = new RpnCalculatorRequest(expression);
+    double result = rpnCalculatorService.evaluateRPN(request);
+    assertEquals(7.0, result);
+  }
+
+  @Test
+  void testEvaluateDivisionSimpleExpression() {
+    String expression = "10 2 /";
+    RpnCalculatorRequest request = new RpnCalculatorRequest(expression);
+    double result = rpnCalculatorService.evaluateRPN(request);
+    assertEquals(5.0, result);
   }
 
   @Test
