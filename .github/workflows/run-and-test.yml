@@ -41,14 +41,14 @@ jobs:
         run: |
           java -jar target/burakTask-0.0.1-SNAPSHOT.jar &
           echo "Waiting for the application to start..."
-          sleep 30  # Wait for a while ,it is a note for myself(Burak)
+          sleep 30  # Wait for a while, it is a note for myself (Burak)
 
       - name: Test /api/show-hints
         run: |
           echo "Testing /api/show-hints"
           curl -X POST http://localhost:9090/api/show-hints \
             -H "Content-Type: application/json" \
-            -d "{\"square\": ${ { github.event.inputs.hintInput } }}"
+            -d "{\"square\": ${{ github.event.inputs.hintInput }} }"
 
       - name: Test /api/calculate
         run: |
