@@ -12,14 +12,14 @@ import java.util.Stack;
 @Slf4j
 public class RpnCalculatorUtils {
 
-  public static boolean isValidRpnExpression(String expression) {
+  public static boolean isValidRpnExpression(final String expression) {
     log.info("Checking if the given RPN expression is valid.");
     if (expression == null || expression.trim().isEmpty()) {
       log.error("The given RPN expression is null or empty.");
       return false;
     }
 
-    String[] tokens = expression.split("\\s+");
+    final String[] tokens = expression.split("\\s+");
     Stack<String> stack = new Stack<>();
 
     for (String token : tokens) {

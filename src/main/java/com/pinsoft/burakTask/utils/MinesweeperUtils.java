@@ -17,7 +17,7 @@ public final class MinesweeperUtils {
 
   private static final Pattern MINESWEEPER_PATTERN = Pattern.compile(MINESWEEPER_REGEX);
 
-  public static boolean isValidMinesweeperInput(List<String> grid) {
+  public static boolean isValidMinesweeperInput(final List<String> grid) {
     log.info("Checking if the given Minesweeper grid is valid.");
     if (Objects.isNull(grid) || grid.isEmpty()) {
       log.error("The given Minesweeper grid is null or empty.");

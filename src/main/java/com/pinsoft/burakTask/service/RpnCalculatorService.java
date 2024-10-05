@@ -18,7 +18,7 @@ import java.util.Stack;
 @Service
 public class RpnCalculatorService {
 
-  public double evaluateRPN(RpnCalculatorRequest rpnCalculatorRequest) {
+  public double evaluateRPN(final RpnCalculatorRequest rpnCalculatorRequest) {
 
     final String expression = rpnCalculatorRequest.getExpression();
 
@@ -27,7 +27,7 @@ public class RpnCalculatorService {
     }
 
     Stack<Double> stack = new Stack<>();
-    String[] tokens = expression.split("\\s+");
+    final String[] tokens = expression.split("\\s+");
 
     for (String token : tokens) {
       if (isOperator(token)) {
@@ -43,11 +43,11 @@ public class RpnCalculatorService {
     return stack.pop();
   }
 
-  private boolean isOperator(String token) {
+  private boolean isOperator(final String token) {
     return "+-*/".contains(token);
   }
 
-  private double applyOperation(String operator, double num1, double num2) {
+  private double applyOperation(final String operator, final double num1, final double num2) {
     log.info("Applying the operator: {} to the numbers: {} and {}", operator, num1, num2);
     return switch (operator) {
       case "+" -> num1 + num2;

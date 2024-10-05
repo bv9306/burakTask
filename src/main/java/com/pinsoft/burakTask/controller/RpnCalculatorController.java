@@ -26,7 +26,7 @@ public class RpnCalculatorController {
   @PostMapping("/calculate")
   public ResponseEntity<RpnCalculatorResponse> calculate(@RequestBody RpnCalculatorRequest request) {
     log.info("Received a request to evaluate the RPN expression");
-    double result = rpnCalculatorService.evaluateRPN(request);
+    final double result = rpnCalculatorService.evaluateRPN(request);
     return ResponseEntity.ok(RpnCalculatorResponse.builder().result(result).build());
   }
 }

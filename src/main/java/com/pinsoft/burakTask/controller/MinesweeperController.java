@@ -27,7 +27,7 @@ public class MinesweeperController {
   @PostMapping("/show-hints")
   public ResponseEntity<MinesweeperResponse> showHints(@RequestBody MinesweeperRequest request) {
     log.info("Received a request to generate hints for the Minesweeper game.");
-    String[] hints = minesweeperService.generateHints(request);
+    final String[] hints = minesweeperService.generateHints(request);
     return ResponseEntity.ok(MinesweeperResponse.builder().hints(hints).build());
   }
 }

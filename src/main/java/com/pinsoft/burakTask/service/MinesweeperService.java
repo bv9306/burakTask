@@ -17,8 +17,8 @@ import java.util.List;
 @Service
 public class MinesweeperService {
 
-  public String[] generateHints(MinesweeperRequest request) {
-    List<String> grid = request.getSquare();
+  public String[] generateHints(final MinesweeperRequest request) {
+    final List<String> grid = request.getSquare();
 
     if (!MinesweeperUtils.isValidMinesweeperInput(grid)) {
       log.error("Invalid Minesweeper input format. Only '*' and '.' are allowed.");
@@ -53,10 +53,9 @@ public class MinesweeperService {
     return hints;
   }
 
-  // As a first collect all the mines to the brd and then count the adjacent mines
-  private int countAdjacentMines(char[][] board, int row, int col) {
+  private int countAdjacentMines(final char[][] board, final int row, final int col) {
     log.info("Counting adjacent mines for the given cell.");
-    int[] directions = {-1, 0, 1};
+    final int[] directions = {-1, 0, 1};
     int mineCount = 0;
     for (int dr : directions) {
       for (int dc : directions) {

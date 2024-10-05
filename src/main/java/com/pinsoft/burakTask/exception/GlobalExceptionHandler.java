@@ -4,7 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.context.request.WebRequest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +16,7 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
   @ExceptionHandler({MinesweeperValidationException.class, RpnValidationException.class})
-  public ResponseEntity<Map<String, Object>> handleValidationException(RuntimeException ex, WebRequest request) {
+  public ResponseEntity<Map<String, Object>> handleValidationException(RuntimeException ex) {
     Map<String, Object> errorDetails = new HashMap<>();
     errorDetails.put("status", HttpStatus.BAD_REQUEST.value());
     errorDetails.put("error", "Bad Request");
@@ -26,7 +25,7 @@ public class GlobalExceptionHandler {
   }
 
   @ExceptionHandler(Exception.class)
-  public ResponseEntity<Map<String, Object>> handleGenericException(Exception ex, WebRequest request) {
+  public ResponseEntity<Map<String, Object>> handleGenericException(Exception ex) {
     Map<String, Object> errorDetails = new HashMap<>();
     errorDetails.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
     errorDetails.put("error", "Internal Server Error");

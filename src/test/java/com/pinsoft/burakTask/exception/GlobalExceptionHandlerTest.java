@@ -25,7 +25,7 @@ public class GlobalExceptionHandlerTest {
     MinesweeperValidationException exception = new MinesweeperValidationException(errorMessage);
     WebRequest request = null; // Mock or create a WebRequest as needed
 
-    ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleValidationException(exception, request);
+    ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleValidationException(exception);
 
     assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
     Map<String, Object> body = response.getBody();
@@ -41,7 +41,7 @@ public class GlobalExceptionHandlerTest {
     RpnValidationException exception = new RpnValidationException(errorMessage);
     WebRequest request = null; // Mock or create a WebRequest as needed
 
-    ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleValidationException(exception, request);
+    ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleValidationException(exception);
 
     assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
     Map<String, Object> body = response.getBody();
@@ -56,7 +56,7 @@ public class GlobalExceptionHandlerTest {
     Exception exception = new Exception("Something went wrong.");
     WebRequest request = null;
 
-    ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleGenericException(exception, request);
+    ResponseEntity<Map<String, Object>> response = globalExceptionHandler.handleGenericException(exception);
 
     assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
     Map<String, Object> body = response.getBody();
