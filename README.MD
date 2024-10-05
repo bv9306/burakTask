@@ -73,11 +73,12 @@ grids.
 - If the tests are successful, It will visualize test results. Chekc the link https://github.com/bv9306/burakTask/actions/workflows/task-unittests.yml
 - Jacoco results can be found in the link https://bv9306.github.io/burakTask/
 
-## Endpoints
+## Endpoints & Automated Tests
 Task can be testable by using github action. Just give your input and trigger the flow.
 Run the following link to run application in virtual machine of github:
 https://github.com/bv9306/burakTask/actions/workflows/run-and-test.yml
-
+Check the below screenshots for the results of the tests.
+![img.png](img.png)
 - RPN Calculator: /api/calculate
 - Minesweeper Hint Generator: /api/show-hints
 
