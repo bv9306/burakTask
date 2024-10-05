@@ -1,0 +1,58 @@
+name: Run Spring Boot Application and Test API
+
+on:
+  workflow_dispatch:
+    inputs:
+      hintInput:
+        description: 'Minesweeper grid input (for example: ["*.*", ".*.", "*.*"])'
+        required: true
+        default: '["*.*", ".*.", "*.*"]'
+      rpnInput:
+        description: 'RPN expression input (for example: "3 5 8 * 7 + *")'
+        required: true
+        default: '3 5 8 * 7 + *'
+
+jobs:
+  run-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'zulu'
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Build with Maven
+        run: mvn clean package -DskipTests
+
+      - name: Run Spring Boot Application
+        run: |
+          java -jar target/burakTask-0.0.1-SNAPSHOT.jar &
+          echo "Waiting for the application to start..."
+          sleep 30  # Wait for a while to ensure the application starts
+
+      - name: Test /api/show-hints
+        run: |
+          echo "Testing /api/show-hints"
+          curl -X POST http://localhost:9090/api/show-hints \
+            -H "Content-Type: application/json" \
+            -d "{\"square\": ${INPUT_HINTINPUT}}"
+
+      - name: Test /api/calculate
+        run: |
+          echo "Testing /api/calculate"
+          curl -X POST http://localhost:9090/api/calculate \
+            -H "Content-Type: application/json" \
+            -d "{\"expression\": \"${{ github.event.inputs.rpnInput }}\"}"
