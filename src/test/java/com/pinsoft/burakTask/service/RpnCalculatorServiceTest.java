@@ -1,9 +1,11 @@
 package com.pinsoft.burakTask.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import com.pinsoft.burakTask.exception.RpnValidationException;
 import com.pinsoft.burakTask.model.RpnCalculatorRequest;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Unit tests for the RpnCalculatorService class.

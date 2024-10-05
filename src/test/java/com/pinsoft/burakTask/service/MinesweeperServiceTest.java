@@ -1,9 +1,10 @@
 package com.pinsoft.burakTask.service;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 import com.pinsoft.burakTask.model.MinesweeperRequest;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Unit tests for the MinesweeperService class.
